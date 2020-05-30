@@ -43,9 +43,9 @@ npm install faker --save-dev
 ```js
 where node  // 查看node位置
 
-> del /f/s/q dirname> nul
+> del /f/s/q node_modules> nul
 
-> rmdir /s/q dirname
+> rmdir /s/q node_modules
 
 npm install --registry https://registry.npm.taobao.org  // 临时使用一次
 
@@ -56,13 +56,15 @@ npm install --registry https://registry.npm.taobao.org  // 临时使用一次
 ```js
 > npm install -g node-gyp  // -1
 
-> npm install --global --production windows-build-tools    // -2
+> npm install --g --production windows-build-tools    // -2
+
+> npm i --unsafe-perm   // 3   等待十秒若不行转4
 
 ------------------------
 
 // npm 报错 "node-pre-gyp WARN Using request for node-pre-gyp https download"
 
-npm cache clean -f  // 清除缓存，再执行 npm i --unsafe-perm   -3
+npm cache clean -f  // 清除缓存，再转3   -4
 
 权限不够，--unsafe-perm 解决
 ```
