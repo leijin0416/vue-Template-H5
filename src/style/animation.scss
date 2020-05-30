@@ -1,0 +1,199 @@
+/**
+ * css 动画 + css 翘边阴影
+ * 
+ * 1、缩放动画
+ */
+.up-ballon {
+    animation: scaleDraw 4s ease-in-out infinite normal;
+}
+@keyframes scaleDraw {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+    0% {
+        transform: translate(-50%, -50%) scale(1);  /*开始为原始大小*/
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(1.1); /*放大1.1倍*/
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* 2、上下晃动动画 */
+.up-animation {
+    animation: upAnimation 4s ease-in-out infinite normal;
+    cursor: pointer;
+}
+
+@keyframes upAnimation{
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+  transition-timing-function: cubic-bezier(0.215,.61,.355,1); 
+  transform: translate3d(0,0,0);
+  }
+  40%,
+  43%{
+  transition-timing-function: cubic-bezier(0.755,0.50,0.855,0.060);
+  transform: translate3d(0,-30px,0);
+  }
+  70%{
+  transition-timing-function: cubic-bezier(0.755,0.050,0.855,0.060);
+  transform: translate3d(0,-15px,0);
+  }
+  90%{
+  transform: translate3d(0,-4px,0);
+  }
+}
+
+/* 3、左右晃动动画 */
+.up-shaking {
+    animation: shakeTopx 4s ease-in-out infinite normal;
+    cursor: pointer;
+}
+
+@keyframes aroundAnimation{
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        transition-timing-function: cubic-bezier(0.215,.61,.355,1); 
+        transform: translate3d(0,0,0);
+    }
+    40%,
+    43%{
+        transition-timing-function: cubic-bezier(0.755,0.50,0.855,0.060);
+        transform: translate3d(-20px,0,0);
+    }
+    70%{
+        transition-timing-function: cubic-bezier(0.755,0.050,0.855,0.060);
+        transform: translate3d(-10px,0px,0);
+    }
+    90%{
+        transform: translate3d(20px,0,0);
+    }
+}
+
+/* 3.1、左右晃动动画  -适合长方形盒子 */
+@keyframes shakeTopx {
+    0%,
+    100% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+        -webkit-transform-origin: 50% 0;
+                transform-origin: 50% 0;
+    }
+    5% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    10%,
+    20%,
+    30% {
+        -webkit-transform: rotate(-4deg);
+                transform: rotate(-4deg);
+    }
+    15%,
+    25%,
+    35% {
+        -webkit-transform: rotate(4deg);
+                transform: rotate(4deg);
+    }
+    40% {
+        -webkit-transform: rotate(-2deg);
+                transform: rotate(-2deg);
+    }
+    45% {
+        -webkit-transform: rotate(2deg);
+                transform: rotate(2deg);
+    }
+    50% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+    }
+}
+
+/**     
+* box-shadow     
+* 功能：添加一个或多个阴影    
+*/ 
+.effect {
+    position: relative;
+}
+.effect:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 90%;
+    height: 60%;
+    left: 20px;
+    bottom: 14px;
+    background: transparent;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .6);
+    transform: skew(-12deg) rotate(-4deg);
+}
+.effect:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 90%;
+    height: 60%;
+    right: 20px;
+    bottom: 14px;
+    background: transparent;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .6);
+    transform: skew(12deg) rotate(4deg);
+}
+
+/**     
+* box-shadow     
+* 功能：添加一个或多个阴影     
+* 语法：box-shadow: h-shadow v-shadow blur spread color inset;     
+* 参数：     
+*      h-shadow（必需）：水平阴影的位置。允许负值。     
+*      v-shadow（必需）：垂直阴影的位置。允许负值。     
+*      blur（可选）：模糊程度，值越大越模糊。     
+*      spread（可选）：阴影的尺寸。一般不推荐设置。     
+*      color（可选）：阴影的颜色。请参阅CSS颜色值。     
+*      inset（可选）：将外部阴影（outset）改为内部阴影。     
+* 浏览器兼容：     
+*      IE9+、Firefox 4、Chrome、Opera以及Safari 5.1.1支持box-shadow属性。     
+*/ 
+.effect-max {     
+    position: relative;     
+    /*box-shadow: h-shadow v-shadow blur color [inset];*/     
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;     
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;     
+    -o-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;     
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;     
+}     
+/**     
+* :after选择器：在被选元素的内容后面插入内容     
+* :before选择器：在备选元素额内容后面插入内容     
+* 说明：需要使用content属性来指定要插入的内容     
+* 浏览器兼容：     
+*      对于IE8及更早版本的:after，必须声明<!DOCTYPE>。     
+*     
+* content属性用于定义元素之前或之后放置的生成内容。默认地，这往往是行内内容，不过该内容创建的     
+* 框类型可以用属性display控制。     
+*/     
+.effect-max::after, .effect-max::before {     
+    content: '';     
+    background: #f00;     
+    position: absolute;     
+    top: 50%;     
+    bottom: 0;     
+    left: 20px;     
+    right: 20px;     
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);     
+    -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);     
+    -o-box-shadow: 0 0 20px rgba(0,0,0,0.8);     
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);     
+    border-radius: 100px/10px; /*水平半径/垂直半径*/     
+    z-index: -1;     
+}

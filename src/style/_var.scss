@@ -1,0 +1,64 @@
+/**
+ * 	全局变量
+ * 	命名规范 —— 遵守语义化命名：lg-大号、md-中号、base-基本号、sm-小号、mini-超小号
+ *
+ *	全局容器
+ */
+
+/* 容器盒子宽度 */
+$width-lg: 1300px;
+$font-weight-base: 400;
+
+//padding
+$sm-pd: 15px;
+$md-pd: 30px;
+$sm-pd-c: 80px;
+$md-pd-c: 120px;
+$lg-pd-c: 190px;
+$lg-pd-max: 320px;
+
+$font-size-lg: 6.667rem;  //80
+$font-size-mds: 3.333rem;  //40
+$font-size-md: 1.667rem; //20
+$font-size-base: 1.5rem;  //18
+$font-size-sm: 1.333rem;  //16
+$font-size-mini: 1.167rem;  //14
+
+//字体色
+$color-body-c: #00C775;
+
+$color-important: #333333;
+$color-common: #606060;
+$color-desc: #909090;
+$color-disabled: #BFBFBF;
+$color-error: #F04134;
+$color-warn: #F5A623;
+$color-lighting: #9013FE;
+
+$color-white: #fff;
+$color-black: #333;
+$color-black-g: #555;
+//淡灰
+$color-gray-bg: #9e9dad;
+//字体灰
+$color-gray: #d7e7f7;
+$color-violet-dark: #922fb7;
+
+//橙色
+$color-orange: #ff9800;
+$color-red: #eb3753;
+
+//投影色
+$border-color-base: rgba(0, 0, 0, .1);
+//淡蓝色
+$color-blue-bg: #4a8eea;
+
+//容器
+.container-wd {width: $width-lg;margin: 0 auto;}
+
+@media only screen and (max-width: 1024px) {
+	//小屏容器
+	.container-wd {
+		width: 100%;
+	}
+}
