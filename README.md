@@ -1,12 +1,14 @@
 # 文档
 
-[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28)
+[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html)
 
 ---
 
 ## Mock 数据
 
 [Mock 步骤参考](https://www.jianshu.com/p/ccd53488a61b) | [Mock 数据参考文档](http://mockjs.com/examples.html) | [Mock 官网文档](https://github.com/nuysoft/Mock/wiki)
+
+![h5.gif](http://cnsblog.top/git-vue-h5.gif)
 
 ### 1、全局安装 json-server
 
