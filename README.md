@@ -8,7 +8,7 @@
 
 [Mock 步骤参考](https://www.jianshu.com/p/ccd53488a61b) | [Mock 数据参考文档](http://mockjs.com/examples.html) | [Mock 官网文档](https://github.com/nuysoft/Mock/wiki)
 
-[<img src='https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif' />](https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif)
+![h5.gif](https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif)
 
 ### 1、全局安装 json-server
 
