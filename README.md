@@ -1,6 +1,6 @@
 # 文档
 
-[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html)
+[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9)
 
 ---
 

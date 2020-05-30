@@ -74,7 +74,7 @@ export default {
 }
 .v-echarts-map {
     width: 100%;
-    height: 800px;
+    height: 720px;
 }
 
 @media only screen and (max-width: 375px) {

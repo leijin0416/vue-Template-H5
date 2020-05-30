@@ -116,7 +116,7 @@ const install = function (Vue) {
                         this.chart.clear();
 
                         const optionData = {
-                            backgroundColor: '#FBFBFB',  
+                            backgroundColor: '#fbfbfb',  
                             title: {
                                 text: '中国疫情图',
                                 left: 'center'
@@ -135,13 +135,13 @@ const install = function (Vue) {
                                     { min: 5000, max: 1000000, label: '>= 10000人', color: '#451913' },
                                     { min: 2000, max: 4999, label: '5000-9999人', color: '#6c190e' },
                                     { min: 500, max: 1999, label: '1000-4999人', color: '#974236' },
-                                    { min: 100, max: 499, label: '10-999人', color: '#ee7263' },
-                                    { min: 1, max: 99, label: '1-9人', color: '#f5bba7' },
+                                    { min: 100, max: 499, label: '100-999人', color: '#ee7263' },
+                                    { min: 1, max: 99, label: '1-99人', color: '#f5bba7' },
                                 ],
                                 color: ['#E0022B', '#E09107', '#A3E00B']
                             },
                             toolbox: {
-                                show: true, // 下载按钮
+                                show: false, // 下载按钮
                                 orient: 'vertical',
                                 left: 'right',
                                 top: 'center',
@@ -165,10 +165,10 @@ const install = function (Vue) {
                                     type: 'map',
                                     mapType: 'china',
                                     roam: false,
-                                    showLegendSymbol: false, // 圆点显示
+                                    showLegendSymbol: false,    // 圆点显示
                                     symbol: 'circle',
                                     itemStyle: {
-                                        // color: 'transparent'
+                                        // color: 'transparent' // 圆点显示
                                     },
                                     label: {
                                         normal: {

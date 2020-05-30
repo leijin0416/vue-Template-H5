@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="v-main-box">
-                <div class="v-inlink-list van-hairline--top">
+                <div class="v-inlink-list">
                     <div class="v-img-box">
                         <img src="@/assets/img/hk/i-home-cell01.png" alt="cell.png" class="v-img">
                     </div>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <div class="v-inlink-list van-hairline--top margin-top-min">
+                <div class="v-inlink-list margin-top-min">
                     <div class="v-img-box">
                         <img src="@/assets/img/hk/i-home-cell03.png" alt="cell.png" class="v-img">
                     </div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
 
-                <div class="v-inlink-list van-hairline--top margin-top-min">
+                <div class="v-inlink-list margin-top-min">
                     <div class="v-img-box">
                         <img src="@/assets/img/hk/i-home-cell06.png" alt="cell.png" class="v-img">
                     </div>
