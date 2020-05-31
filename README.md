@@ -8,7 +8,7 @@
 
 [Mock 步骤参考](https://www.jianshu.com/p/ccd53488a61b) | [Mock 数据参考文档](http://mockjs.com/examples.html) | [Mock 官网文档](https://github.com/nuysoft/Mock/wiki)
 
-![h5.gif](https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif)
+[H5效果GIF链接](https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif)
 
 ### 1、全局安装 json-server
 
@@ -79,7 +79,7 @@ npm cache clean -f  // 清除缓存，再转3   -4
 
 [Animate css动画](http://www.jq22.com/yanshi819) | [掘金-‘正则’等工具函数](https://juejin.im/post/5e6cf42bf265da57397e3694)
 
-[新型冠状病毒疫情实时爬虫](https://github.com/BlankerL/DXY-COVID-19-Crawler) | [VANT 操作](https://github.com/Line999/vue-h5-template/blob/master/src/App.vue) | [一个抽奖的轮子](https://wheel.assetss.cn/docs/#/?id=vue-big-wheel)
+[新型冠状病毒疫情实时爬虫1](https://github.com/BlankerL/DXY-COVID-19-Crawler)| [新型冠状病毒疫情实时爬虫2](https://juejin.im/post/5e480369f265da57127e3d15) | [VANT GIT操作](https://github.com/Line999/vue-h5-template/blob/master/src/App.vue) | [一个抽奖的轮子](https://wheel.assetss.cn/docs/#/?id=vue-big-wheel)
 
 ### 1、vw 适配
 

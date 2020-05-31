@@ -29,9 +29,8 @@ axios.interceptors.response.use(response => {
     return response
     
 }, error => {
-    const status = error.response.status
-    const { response } = error
-    // console.log(status);
+    const status = error.response.status;
+    const { response } = error;
     if (error && error.response) {
         switch (status) {
             case 400:
@@ -63,6 +62,7 @@ axios.interceptors.response.use(response => {
     } else {
         tip('小主~ 网络开小差，稍后再试')
     }
+    // console.log(error);
     return Promise.reject(error.response)
 })
 

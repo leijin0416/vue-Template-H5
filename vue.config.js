@@ -65,6 +65,14 @@ const isDevBD = {
         pathRewrite: {
             "^/china": "/"
         }
+    },
+    '/cv': {
+        target: 'https://wuliang.art',
+        changeOrigin: true,
+        wx: true,
+        pathRewrite: {
+            "^/cv": "/"
+        }
     }
 }
 const isDevCS = {

@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import { ajWebGetSendChinaNews } from '@/mock/api/mock'
+
 export default {
 	name: "",
 	//组件
@@ -14,17 +16,33 @@ export default {
 	},
 	//接收父组件传参
 	props: {
-		'FooterName': String
 	},
 	data() {
 		return {
+			data: {
+				page: 1,
+				num: 1
+			},
 			bg: require('@/assets/img/hk/logo.png'),
 		}
 	},
 	//页面初始化
-	mounted(){},
+	mounted(){
+		this.fetchNewsData()
+	},
 	//监听click方法
 	methods: {
+        fetchNewsData () {
+			let _that = this;
+			let {page, num} = _that.data;
+
+            ajWebGetSendChinaNews({
+				'page': 1
+            }).then( res => {
+                // let data = JSON.parse(res.data.data);
+                console.log(res)
+            })
+        },
 	}
 }
 </script>
