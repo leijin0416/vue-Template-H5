@@ -57,7 +57,7 @@ export default {
 
 <style lang="scss" scoped>
 .v-router {
-    padding-bottom: 110px;
+    padding-bottom: 120px;
     overflow: hidden;
     overflow-y: auto;
 }
