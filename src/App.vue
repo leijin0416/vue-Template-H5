@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="g-content-box">
         <transition :name="'vux-pop-'+(direction === 'next' ? 'in' : direction==='prev' ? 'out' : '')">
-            <router-view class="v-router" v-wechat-title="$route.meta.title" />
+            <router-view v-wechat-title="$route.meta.title" />
         </transition>
         <MTabBar 
             v-if="$route.meta.displayNavBar"
@@ -56,11 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-router {
-    padding-bottom: 120px;
-    overflow: hidden;
-    overflow-y: auto;
-}
 .vux-pop-out-enter-active,
 .vux-pop-out-leave-active,
 .vux-pop-in-enter-active,

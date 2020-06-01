@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="page v-router">
 		<div class="container">
             <div class="v-echarts-map" id="chartMap"></div>
             <div class="v-echarts" id="chart"></div>

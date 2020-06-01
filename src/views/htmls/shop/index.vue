@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="page v-router">
 		<div class="container">
 			<h3 class="v-h3-new">最新消息</h3>
 			<div class="v-news-box">
@@ -84,7 +84,7 @@ export default {
 				content: ' ';
 				z-index: 9;
 				position: absolute;
-				left: -6px;
+				left: -8px;
 				top: 0;
 				display: block;
 				width: 20px;
@@ -112,6 +112,7 @@ export default {
 					width: 50%;
 					padding: 0 0 20px;
 					box-sizing: border-box;
+					font-size: 24px;
 				}
 				> .v-text {
 					text-align: right;
@@ -138,7 +139,7 @@ export default {
 				}
 				.v-text {
 					padding: 30px;
-					font-size: 28px;
+					font-size: 24px;
 					color: #999;
 					span {
 						color: #706dea;

@@ -1,5 +1,5 @@
 <template>
-	<div class="page" :class="dynamicClass">
+	<div class="page v-router" :class="dynamicClass">
         <van-button type="primary">主要按钮</van-button>
         <p>“工业品采购上一呼百应！”，一呼百应工业品直卖网（www.youboy.com）优选710多万家制造业云工厂直卖，劳保用品、包装印刷、化工橡塑、电子仪表、五金建材、电动工具、机械配件、原材料等2000多品类供应链产品。</p>
 	</div>

@@ -1,5 +1,5 @@
 <template>
-	<div class="page">
+	<div class="page v-router">
 		<div class="container">
             <div class="v-head-portrait">
                 <div class="weui-flex">
@@ -221,7 +221,7 @@ export default {
     .v-main-box {
         z-index: 1;
         position: relative;
-        padding: 100px 30px 30px;
+        padding: 100px 30px 10px 30px;
         .van-hairline--top:nth-child(1)::after {
             border-top: none;
         }
