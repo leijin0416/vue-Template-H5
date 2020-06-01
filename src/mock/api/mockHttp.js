@@ -34,36 +34,36 @@ axios.interceptors.response.use(response => {
     if (error && error.response) {
         switch (status) {
             case 400:
-                tip('小主~ 我们请求出错')
-                break
+                tip('小主~ 我们请求出错');
+                break;
             case 401:
                 // 401: 未登录状态，跳转登录页
-                tip('系统提示：您未登录')
+                tip('系统提示：您未登录');
                 setTimeout(() => {
                     removeStore('hasSessionToken');
                     window.location.reload();
-                }, 1000)
-                return
+                }, 1000);
+                break;
             case 403:
-                tip('登录过期，请重新登录')
+                tip('登录过期，请重新登录');
                 setTimeout(() => {
                     removeStore('hasSessionToken');
                     window.location.reload();
-                }, 1000)
-                break
+                }, 1000);
+                break;
             case 404:
-                tip('系统提示：请求资源未找到')
-                break
+                tip('系统提示：请求资源未找到');
+                break;
             case 500:
-                tip('系统提示：服务端出错')
-                break
+                tip('系统提示：服务端出错');
+                break;
         }
-        return status >= 200 && status < 300
+        return status >= 200 && status < 300;
     } else {
-        tip('小主~ 网络开小差，稍后再试')
+        tip('小主~ 网络开小差，稍后再试');
     }
     // console.log(error);
-    return Promise.reject(error.response)
+    return Promise.reject(error.response);
 })
 
 export default {
