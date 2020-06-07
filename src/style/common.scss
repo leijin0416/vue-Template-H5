@@ -18,7 +18,7 @@ input:focus {outline:none; box-shadow: none!important;border-color: $color-body-
 // 去掉input type=number时输入框内的上下箭头
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button { -webkit-appearance: none; }	
-input[type="number"]{ -moz-appearance: textfield !important; }
+input[type="number"] { -moz-appearance: textfield !important; }
 a {color: $color-body-c !important;}
 a:hover {color: transparent;text-decoration: none;}
 img { content: normal !important; vertical-align: top; }
