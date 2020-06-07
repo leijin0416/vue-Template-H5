@@ -1,8 +1,10 @@
 <template>
 	<div id="app" class="g-content-box">
+        <!-- 切换动画 -->
         <transition :name="'vux-pop-'+(direction === 'next' ? 'in' : direction==='prev' ? 'out' : '')">
             <router-view v-wechat-title="$route.meta.title" />
         </transition>
+        <!-- 底部导航 -->
         <MTabBar 
             v-if="$route.meta.displayNavBar"
             :data="tabBarData"
@@ -11,10 +13,10 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from "vuex";
-
 import Layout from "@/layouts";
 import MTabBar from "@/components/navBarTabs/navbar";
+
+import { mapState, mapMutations, mapGetters } from "vuex";
 import { sessionData } from '@/filters/local';
 
 export default {

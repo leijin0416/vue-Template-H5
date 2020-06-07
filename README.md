@@ -6,19 +6,22 @@
 
 ---
 
-## Mock 数据
+## /Mock 数据
 
 [Mock 步骤参考](https://www.jianshu.com/p/ccd53488a61b) | [Mock 数据参考文档](http://mockjs.com/examples.html) | [Mock 官网文档](https://github.com/nuysoft/Mock/wiki)
+
+- 项目目录下创建 mock 文件夹
+
+- mock 文件夹下添加 db.js 文件
 
 ### 1、全局安装 json-server
 
 ```js
 npm install --g json-server
+
+// 更改json-server默认3000端口
+json-server --watch mock/db.js --port 3004
 ```
-
-- 项目目录下创建 mock 文件夹
-
-- mock 文件夹下添加 db.js 文件
 
 ### 2.1、mockjs 批量生成伪数据
 
@@ -38,7 +41,7 @@ npm install faker --save-dev
 
 ---
 
-## node 版本
+## /node 版本
 
 [版本控制 10.12.0 zip](https://nodejs.org/zh-cn/download/releases/)
 
@@ -75,7 +78,7 @@ npm cache clean -f  // 清除缓存，再转3   -4
 
 ---
 
-## 前端优化
+## /前端优化
 
 [Animate css动画](http://www.jq22.com/yanshi819) | [掘金-‘正则’等工具函数](https://juejin.im/post/5e6cf42bf265da57397e3694)
 
