@@ -1,43 +1,27 @@
 /**
  * 	【公共样式库】
  * 	 头部banner、字体粗细、字体间距、flex垂直居中
- * */
-body, html {
-	font-size: 14px !important;
-}
-
-/*
- * 【通用 -清除 number 输入框   -去掉蓝色边框线】
  *
+ * 【 通用 -清除 number 输入框   -去掉蓝色边框线 】
  * type="number"， maxlength失效，解决方法：
- * <input type="number" oninput="if(value.length>30)value=value.slice(0,30)" >
+ *   <input type="number" oninput="if(value.length>30)value=value.slice(0,30)" >
  *
  * input 只能输入数字:
- * <input type="text" onkeyup="value=value.replace(/[^\d]/g,'') " maxlength="10">
-*/
-a,button,input{ outline:none; border:0;resize:none; }
-input{ outline:none; border:0; }
-input:focus{outline:none; box-shadow: none!important;border-color: $color-body-c!important;} 
-/*
- *  去掉input type=number时输入框内的上下箭头
- */
+ *   <input type="text" onkeyup="value=value.replace(/[^\d]/g,'') " maxlength="10">
+ *
+ **/
+body, html { font-size: 14px !important; }
+
+a, button, input { outline:none; border:0;resize:none; }
+input { outline:none; border:0; }
+input:focus {outline:none; box-shadow: none!important;border-color: $color-body-c!important;} 
+// 去掉input type=number时输入框内的上下箭头
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-}	
-input[type="number"]{
-    -moz-appearance: textfield !important;
-}
+input::-webkit-inner-spin-button { -webkit-appearance: none; }	
+input[type="number"]{ -moz-appearance: textfield !important; }
 a {color: $color-body-c !important;}
 a:hover {color: transparent;text-decoration: none;}
-
-img { 
-    content: normal !important;
-    height: 100%;
-    vertical-align: top;
-}
-
-.van-cell--clickable:active {background-color: transparent !important;}
+img { content: normal !important; vertical-align: top; }
 
 /*
  *  全局过渡动画
@@ -47,14 +31,8 @@ img {
     animation: showPanel .6s ease-in-out 1 forwards;
 }
 @keyframes showPanel{
-    from{
-        opacity: 0;
-        transform: translateX(280px);
-    }
-    to{
-        opacity: 1;
-        transform: translateX(0px);
-    }
+    from { opacity: 0; transform: translateX(280px); }
+    to { opacity: 1; transform: translateX(0px); }
 }
 .slide-fade-enter-active {
     transition: all .3s ease-in-out;
@@ -67,8 +45,27 @@ img {
     transform: translateX(380px);
     opacity: 0;
 }
+//------------全局过渡动画 END------------
 
-//------------ END ------------
+.v-router {
+    padding-bottom: 112px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+// 弹性布局
+.weui-flex {
+    @include flex(row, nowrap);
+    @include align-item(center);
+    word-break: break-all;
+    overflow-wrap: break-word;
+    word-wrap: break-word; //兼容IE
+    overflow: hidden;
+    .weui-cell-hd, .weui-cell-hd { display: inline-block; }
+    .weui-cell-bd { @include flex-size(1) }
+}
+.flex-alg {align-items: center;}
+.flex-alg-sf {align-self: center;}
+.van-cell--clickable:active {background-color: transparent !important;}
 
 // 主体色
 .color-body-c {color: $color-body-c;}
@@ -82,18 +79,11 @@ img {
 
 .hide {display: none;}
 .show {display: block;}
-
-.ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-
-.flex-alg {align-items: center;}
-.flex-alg-sf {align-self: center;}
-
 .font-wb {font-weight: bold;}
 .text-rg {text-align: right;}
 
 .left {float: left;}
 .right {float: right;}
-
 .clearfix {zoom: 1;}
 .clearfix::after {
     content: '.';
@@ -104,36 +94,16 @@ img {
     visibility: hidden;
 }
 
-.v-router {
-    padding-bottom: 112px;
-    overflow: hidden;
-    overflow-y: auto;
-}
-
 //字体间距
-.text-letter {
-	line-height: 2;
-	letter-spacing: 0.166rem;
-}
+.text-letter { line-height: 2; letter-spacing: 4px; }
 
 /*
- * 【文字省略】
- * 一行文字溢出省略号
+ * 【文字省略】 一行文字溢出省略号
  */
-.ellipsis-xs{
-     overflow:hidden; 
-     text-overflow:ellipsis; 
-     white-space: nowrap;
-}
+.ellipsis-xs { overflow:hidden; text-overflow:ellipsis; white-space: nowrap;}
 
 // 两行文字溢出省略号
-.ellipsis-sm{
-     display:-webkit-box; 
-     -webkit-line-clamp:2; 
-     -webkit-box-orient: vertical; 
-     overflow:hidden;
-     text-overflow:ellipsis;
-}
+.ellipsis-sm{ display:-webkit-box;  -webkit-line-clamp:2;  -webkit-box-orient: vertical;  overflow:hidden; text-overflow:ellipsis;}
 
 //主体渐变
 .backgColor-bg {
@@ -142,32 +112,6 @@ img {
     background: -webkit-linear-gradient(left,  #2a7aff 0%,#f7618b 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right,  #2a7aff 0%,#f7618b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a7aff', endColorstr='#f7618b',GradientType=1 ); /* IE6-9 */
-}
-
-
-// 弹性布局
-.weui-flex {
-    @include flex(row, nowrap);
-    @include align-item(center);
-    word-break: break-all;
-    overflow-wrap: break-word;
-    word-wrap: break-word; //兼容IE
-    overflow: hidden;
-    .weui-cell-hd, .weui-cell-hd { display: inline-block; }
-    .weui-cell-bd { @include flex-size(1) }
-}
-
-.page .v-container {
-    width: 1240px;
-    margin: 0 auto;
-}
-
-//小于1024
-@media only screen and (max-width: 1040px) {
-	.page .v-container {
-        width: auto;
-        margin: 0 15px;
-    }
 }
 
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
@@ -196,9 +140,5 @@ img {
 	::-webkit-scrollbar {
 	    width: 0;
 	    height: 0;
-    }
-    img {
-        width: 100%;
-        height: auto;
     }
 }
