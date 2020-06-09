@@ -16,7 +16,7 @@
 
 ## 上拉加载
 
-- src\components\pullRefreshList\index.vue
+- src/components/pullRefreshsList/index.vue  下拉刷新 && 上拉加载；
 
 ---
 
