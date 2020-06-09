@@ -8,7 +8,7 @@
 
 ---
 
-## /索引栏-城市列表
+## 索引栏-城市列表
 
 - src/components/indexBars/constAZ.js  全部的中文拼音；
 
@@ -16,7 +16,7 @@
 
 ## 上拉加载
 
-- src/components/pullRefreshsList/index.vue  下拉刷新 && 上拉加载；
+- src/components/case-pullRefresh/index.vue  下拉刷新 && 上拉加载；
 
 ---
 
