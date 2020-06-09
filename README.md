@@ -10,9 +10,9 @@
 
 ## 索引栏-城市列表
 
-- src/components/indexBars/constAZ.js  全部的中文拼音；
+- src/components/case-indexBar/constAZ.js  全部的中文拼音；
 
-- src/components/indexBars/vuePY.js  将中文转换成拼音，并按字母排序；
+- src/components/case-indexBar/vuePY.js  将中文转换成拼音，并按字母排序；
 
 ## 上拉加载
 
