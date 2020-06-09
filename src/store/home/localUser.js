@@ -1,11 +1,11 @@
-import { sessionData } from '@/filters/local'
+import { sessionData } from '@/filters/local';
 
 export default {
 	namespaced: true,
 	//1、要设置的全局访问的state对象
     state: {
-        getSessionToken: null,
-        getNavId: null
+        getSessionToken: '',
+        getNavId: ''
 	},
 	//2、实时监听state值的变化(最新状态)
     getters: {
@@ -17,11 +17,12 @@ export default {
 	},
 	//4、如何变化 datalist
 	mutations: {
-		//用户id
+		// 用户Token
 		handleUserSession: (state, getSessionToken) => {
             state.getSessionToken = getSessionToken;
             sessionData('set', 'getSessionToken', getSessionToken);
         },
+		// 导航ID
         handleUserNavId: (state, getNavId) => {
             state.getNavId = getNavId;
             sessionData('set', 'setTabBarActive', getNavId);

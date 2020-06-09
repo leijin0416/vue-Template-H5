@@ -1,6 +1,6 @@
 import axios from "axios";
 import CryptoJS from './cryptoJS';
-import { removeStore, getStore } from '@/common/localUtil';
+import { sessionData } from '@/filters/local';
 // import { Toast } from 'vant';
 // 格式化返回数据
 import { getRealJsonData } from './json';
@@ -42,7 +42,7 @@ const toLogin = () => {
  *    - JSON.stringify()
  */
 axios.interceptors.request.use( config => {
-    const token = getStore('hasSessionToken');
+    const token = sessionData('get', 'getSessionToken');
 
     token && (config.headers.token = token);
     config.data = {
@@ -67,7 +67,7 @@ axios.interceptors.response.use( response => {
         tip('登录过期，请重新登录');
         setTimeout(() => {
             // toLogin();
-            removeStore('hasSessionToken');
+            sessionData('clean', 'getSessionToken');
             window.location.reload();
         }, 1000);
     }

@@ -4,7 +4,7 @@
 import mockRequest from './mockHttp';
 
 /**
- * 
+ * 疫情数据
  * @param {*} params 
  */
 export const groupDetail = params => mockRequest.post('/api/user', params)

@@ -1,21 +1,24 @@
 <template>
-    <van-tabbar v-model="active" @change="changeActive" fixed>
-        <van-tabbar-item 
-            v-for="(item, index) of data"  
-            :key="item.name"
-            :to="item.path" 
-            :name="item.name">
-            <span>{{item.label}} {{active}}</span>
-            <template #icon="props">
-                <img :src="props.active ? item.active : item.inactive" />
-            </template>
-            </van-tabbar-item>
-    </van-tabbar>
+    <div class="v-nav">
+        <van-tabbar v-model="active" @change="changeActive" fixed>
+            <van-tabbar-item 
+                v-for="(item, index) of data"  
+                :key="item.name"
+                :to="item.path" 
+                :name="item.name">
+                <span>{{item.label}} {{active}}</span>
+                <template #icon="props">
+                    <img :src="props.active ? item.active : item.inactive" />
+                </template>
+                </van-tabbar-item>
+        </van-tabbar>
+    </div>
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
+import App from './App.vue';
 
+import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
 import { sessionData } from '@/filters/local';
 
 export default {
@@ -61,11 +64,11 @@ export default {
         let sessionId = sessionData('get', 'setTabBarActive');
         // console.log(sessionId);
 
-        if (num == null && sessionId == null) {
+        if (num == '' && sessionId == null) {
             // 第一次进来的时候
             this.active = 1;
 
-        } else if (num == null && sessionId != null) {
+        } else if (num == '' && sessionId != null) {
             // 刷新页面的时候
             let url = this.$route.path;
             let displayNavBar = this.$route.meta.displayNavBar;
