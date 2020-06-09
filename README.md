@@ -12,7 +12,13 @@
 
 - src/components/indexBars/constAZ.js  全部的中文拼音；
 
-- src/components/indexBars/vuePY.js  将中文转换成拼音，并按字母排序
+- src/components/indexBars/vuePY.js  将中文转换成拼音，并按字母排序；
+
+## 上拉加载
+
+- src\components\pullRefreshList\index.vue
+
+---
 
 ## /Mock 数据
 

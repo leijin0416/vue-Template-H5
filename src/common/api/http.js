@@ -1,9 +1,9 @@
 import axios from "axios";
 import CryptoJS from './cryptoJS';
 import { sessionData } from '@/filters/local';
-// import { Toast } from 'vant';
 // 格式化返回数据
 import { getRealJsonData } from './json';
+// import { Toast } from 'vant';
 
 axios.defaults = {
     baseURL: '',
@@ -81,20 +81,20 @@ axios.interceptors.response.use( response => {
     if (error && error.response) {
         switch (status) {
             case 400:
-                tip('小主~ 我们请求出错');
+                tip('小主~ 我们请求出错了');
                 break;
             case 401:
                 // 401: 未登录状态，跳转登录页
-                tip('系统提示：您未登录');
+                tip('系统提示：账号未登录');
                 setTimeout(() => {
-                    removeStore('hasSessionToken');
+                    sessionData('clean', 'getSessionToken');
                     window.location.reload();
                 }, 1000);
                 break;
             case 403:
                 tip('登录过期，请重新登录');
                 setTimeout(() => {
-                    removeStore('hasSessionToken');
+                    sessionData('clean', 'getSessionToken');
                     window.location.reload();
                 }, 1000);
                 break;
