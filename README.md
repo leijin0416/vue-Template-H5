@@ -1,10 +1,18 @@
 # 文档
 
-[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9)
+[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [面试+分析题](https://juejin.im/post/5ede4c556fb9a047a6446a8e#comment)
+
+[图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9)
 
 [H5效果GIF链接](https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif)
 
 ---
+
+## /索引栏-城市列表
+
+- src/components/indexBars/constAZ.js  全部的中文拼音；
+
+- src/components/indexBars/vuePY.js  将中文转换成拼音，并按字母排序
 
 ## /Mock 数据
 
