@@ -37,7 +37,8 @@
                                         <p class="v-text">+ {{item.changeNum}}</p>
                                     </div>
                                     <div class="weui-cell-ft">
-                                        <p>{{item.createTime}}</p>
+                                        <!-- 复制文字 -->
+                                        <p class="ctrlBtn" @click="ctrlCBtn" :data-clipboard-text="item.createTime">{{item.createTime}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +75,8 @@
 </template>
 
 <script>
+import Clipboard from "clipboard";
+
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
 import { sessionData } from '@/filters/local';
 import { webGetLoveTransList, webGetUsersCoreInfo } from '@/api/common';
@@ -82,9 +85,9 @@ export default {
     data() {
         return {
             activeTab: 'a',
-			loading: false,
-			finished: false,
-			refreshing: false,
+			loading: false,     // 是否在上拉加载
+			finished: false,    // 是否还有商品
+			refreshing: false,  // 是否在刷新
 			loveData: [],
             pages: {
                 pageNum: 0,
@@ -96,7 +99,7 @@ export default {
 			refreshingPay: false,
 			lovePayData: [],
             pagesPay: {
-                pageNum: 1,
+                pageNum: 0,
                 pageSize: 20,
                 uid: ''
             },
@@ -116,7 +119,6 @@ export default {
         let data = sessionData('get', 'getUserInfo');
         _that.pages.uid = data.uid;
         _that.loveNum = data.loveNum;
-        _that.getLoveInfoData();
         // console.log(data);
     },
     //生命周期 - 挂载完成（可以访问DOM元素）
@@ -132,19 +134,43 @@ export default {
             let _that = this;
             _that.$router.go(-1);
         },
+        // 复制链接
+        ctrlCBtn(){
+            let _that = this;
+            let clipboard = new Clipboard('.ctrlBtn');
+            let text = this.$t('homePage_054');
+            
+            clipboard.on('success', function(e) {
+                _that.$notify({
+                    message: text,
+                    color: '#00c775',
+                    background: '#fff',
+                });
+                e.clearSelection();
+                // 释放内存  
+                clipboard.destroy()  
+            });
+            // 失败回调
+            clipboard.on('error', function(e) {
+                console.log('error');
+                // 释放内存  
+                clipboard.destroy()
+            });
+        },
         /**
          *  下拉刷新
+         *  先将finished=true，数据加载完了在判断该值应该是true还是false，避免在下拉刷新的时候触发上拉加载。
          */
         onRefresh () {
             let _that = this;
-            _that.finished = false;
+            _that.finished = true;
             _that.loading = true;
             _that.pages.pageNum = 0;
             _that.onloadLoveData();
         },
         onRefreshPay () {
             let _that = this;
-            _that.finishedPay = false;
+            _that.finishedPay = true;
             _that.loadingPay = true;
             _that.pagesPay.pageNum = 0;
             _that.onloadLovePayData();
@@ -171,7 +197,7 @@ export default {
                 webGetLoveTransList({
                     'id': pages.uid,
                     'type': 1,
-                    'pageNum': pages.pageNum + 1,
+                    'pageNum': pages.pageNum + 1,  // 每上拉一回 值+1
                     'pageSize': pages.pageSize
                 }).then( res => {
                     if (_that.refreshing) {
@@ -179,6 +205,7 @@ export default {
                         _that.refreshing = false;
                     }
                     let data = res.data.data.rows;
+                    // 将每页数据添加到新数组中
                     data.forEach(item => {
                         _that.loveData.push(item);
                     });
@@ -190,6 +217,8 @@ export default {
 
                     if (_that.loveData.length >= totalRow) {
                         _that.finished = true;
+                    } else {
+                         _that.finished = false;
                     }
 
                     // console.log(_that.refreshing);
@@ -225,6 +254,8 @@ export default {
 
                     if (_that.lovePayData.length >= totalRow) {
                         _that.finishedPay = true;
+                    } else {
+                        _that.finishedPay = false;
                     }
                 })
             }, 1000);
@@ -234,7 +265,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/deep/.van-tabs__content {min-height: 800px;}
+/deep/.van-tabs__content {min-height: 800px; background-color: #fff;}
 .page {
     position: relative;
     background-color: #f1f1f1;
@@ -280,7 +311,7 @@ export default {
         padding: 30px;
         /deep/.van-tabs__line {background-color: #fe3062;}
         /deep/.van-tab--active {font-weight: bold; color: #fe3062;}
-        /deep/.van-list {min-height: 800px; padding: 10px 30px; background-color: #fff;}
+        /deep/.van-list {padding: 10px 30px;}
         .v-love-list {
             padding: 30px 0;
             border-top: 2px solid #f1f1f1;

@@ -1,6 +1,6 @@
 # 文档
 
-[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [面试+分析题](https://juejin.im/post/5ede4c556fb9a047a6446a8e#comment)
+[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [面试+分析题](https://juejin.im/post/5ede4c556fb9a047a6446a8e#comment) | [面试+分析题](https://juejin.im/post/5ee1e42ef265da770d3dcc2c#comment)
 
 [图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9)
 
@@ -111,7 +111,7 @@ npm cache clean -f  // 清除缓存，再转3   -4
 ```js
 const history = window.sessionStorage;
 let count = history.getItem('count') || 0;
-history.clear()
+history.clear();
 
 router.beforeEach((to, from, next) => {
     // 第一级栏目
@@ -120,6 +120,7 @@ router.beforeEach((to, from, next) => {
     for (let index in subArr) history.setItem(subArr[index], 0)
 
     if (toIndex || toIndex === 0) {
+        // 判断前进/后退
         if (toIndex > prevIndex) {
             store.commit('handleDirectionId', 'next')
         } else if (toIndex === prevIndex) {  // 一级栏目无切换效果
@@ -133,9 +134,9 @@ router.beforeEach((to, from, next) => {
         store.commit('handleDirectionId', 'next')
     }
     next();
-})
+});
 
-this.$router.back(-1) // 按钮返回
+this.$router.back(-1); // 按钮返回
 
 ```
 

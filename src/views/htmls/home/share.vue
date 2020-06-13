@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import qrCanvasImgUrl from "@/components/qrCanvasImgUrl/qrCanvasUrl"
+import qrCanvasImgUrl from "@/components/qrCanvasImgUrl/index";
 
 export default {
 	name: "",

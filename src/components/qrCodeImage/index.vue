@@ -1,25 +1,26 @@
 <template>
+    <!-- 生成二维码 -->
     <div class="ivu-code">
         <div id="qrCode" ref="qrCodeDiv" class="ivu-img"></div>
     </div>
 </template>
 
 <script>
-import QRCode from 'qrcodejs2'
-import { mapState, mapMutations, mapActions, mapGetters } from "vuex"
+import QRCode from 'qrcodejs2';
+import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
 
 export default {
     data() {
-        return {
-
-        }
+        return { }
     },
-    props: {},
+    props: {
+        // developCode: String
+    },
     components: {},
-    //监听属性 类似于data概念
+    // 监听属性 类似于data概念
     computed: {
-		//取
-		...mapGetters("localUser", ["developCode"])
+		// 取
+		// ...mapGetters("localUser", ["developCode"])
     },
     watch: {
 		"developCode": {
@@ -34,25 +35,25 @@ export default {
 			},
 	　　　　deep: true
 		}
-
     },
-    //生命周期 - 创建完成（可以访问当前this实例）
-    created() {},
-    //生命周期 - 挂载完成（可以访问DOM元素）
-    mounted() {
-        let url = this.developCode
+    // 生命周期 - 创建完成（可以访问当前this实例）
+    created() {
+        let url = this.developCode;
         if (url) {
-            this.QRcode(url)
+            this.onQRcode(url);
         }
     },
-    //方法集合
+    // 生命周期 - 挂载完成（可以访问DOM元素）
+    mounted() {
+    },
+    // 方法集合
     methods: {
         // 清除上一次的二维码
         showQRCodeDialog(type) {
             this.$refs.qrCodeDiv.innerHTML = ''
-            this.QRcode(type)
+            this.onQRcode(type)
         },
-        QRcode(url) {
+        onQRcode(url) {
             let that = this;
             let urls = url
             // console.log(url);
@@ -61,9 +62,9 @@ export default {
                     text: urls,
                     width: 120,
                     height: 120,
-                    colorDark: "#333333", //二维码颜色
-                    colorLight: "#ffffff", //二维码背景色
-                    correctLevel: QRCode.CorrectLevel.L//容错率，L/M/H
+                    colorDark: "#333333",    // 二维码颜色
+                    colorLight: "#ffffff",   // 二维码背景色
+                    correctLevel: QRCode.CorrectLevel.L  // 容错率，L/M/H
                 })
             }
         },
