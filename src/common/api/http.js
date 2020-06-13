@@ -64,7 +64,7 @@ axios.interceptors.response.use( response => {
     response.data = getRealJsonData(CryptoJS.Decrypt(response.data.data))
     // console.log(response.data.code);
     if (response.data.code === 600) {
-        tip('登录过期，请重新登录');
+        tip('小主~ 登录过期，请重新登录');
         setTimeout(() => {
             // toLogin();
             sessionData('clean', 'getSessionToken');
@@ -92,22 +92,22 @@ axios.interceptors.response.use( response => {
                 }, 1000);
                 break;
             case 403:
-                tip('登录过期，请重新登录');
+                tip('小主~ 登录过期，请重新登录');
                 setTimeout(() => {
                     sessionData('clean', 'getSessionToken');
                     window.location.reload();
                 }, 1000);
                 break;
             case 404:
-                tip('系统提示：请求资源未找到');
+                tip('小主~ 请求错误，未找到该资源');
                 break;
             case 500:
-                tip('系统提示：服务端出错');
+                tip('小主~ 服务端错误');
                 break;
         }
         return status >= 200 && status < 300;
     } else {
-        tip('小主~ 网络开小差，稍后再试');
+        tip('小主~ 网络开小差啦，稍后再试');
     }
     return Promise.reject(error.response);
 })
