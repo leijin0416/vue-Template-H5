@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import store from '@/store';
-import { constantRouterMaps } from './routersMaps.js';
-import { getStore } from '@/common/localUtil';
+import { constantRouterMaps } from './routersMaps';
+import { sessionData } from '@/filters/local';
 
 Vue.use(Router);
 
@@ -36,6 +36,8 @@ let count = history.getItem('count') || 0;
 history.removeItem('count');
 
 router.beforeEach((to, from, next) => {
+    const token = sessionData('get', 'getSessionToken');
+    
     // 第一级栏目
     const subArr = ['/', '/transmit', '/home', '/shop']
     let [toIndex, prevIndex] = [parseInt(history.getItem(to.path)), parseInt(history.getItem(from.path))]
