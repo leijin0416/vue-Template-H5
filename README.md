@@ -1,6 +1,6 @@
 # 文档
 
-[面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [面试+分析题](https://juejin.im/post/5ede4c556fb9a047a6446a8e#comment) | [面试+分析题](https://juejin.im/post/5ee1e42ef265da770d3dcc2c#comment)
+[1 面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [2 面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [3 面试+分析题](https://juejin.im/post/5ede4c556fb9a047a6446a8e#comment) | [4 面试+分析题](https://juejin.im/post/5ee1e42ef265da770d3dcc2c#comment)
 
 [图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9)
 
@@ -8,19 +8,19 @@
 
 ---
 
-## 索引栏-城市列表
+## （一）索引栏-城市列表
 
 - src/components/case-indexBar/constAZ.js  全部的中文拼音；
 
 - src/components/case-indexBar/vuePY.js  将中文转换成拼音，并按字母排序；
 
-## 上拉加载
+## （二）上拉加载
 
 - src/components/case-pullRefresh/index.vue  下拉刷新 && 上拉加载；
 
 ---
 
-## /Mock 数据
+## （三）Mock 数据
 
 [Mock 步骤参考](https://www.jianshu.com/p/ccd53488a61b) | [Mock 数据参考文档](http://mockjs.com/examples.html) | [Mock 官网文档](https://github.com/nuysoft/Mock/wiki)
 
@@ -55,7 +55,7 @@ npm install faker --save-dev
 
 ---
 
-## /node 版本
+## （四）node 版本
 
 [版本控制 10.12.0 zip](https://nodejs.org/zh-cn/download/releases/)
 
@@ -92,7 +92,7 @@ npm cache clean -f  // 清除缓存，再转3   -4
 
 ---
 
-## /前端优化
+## （五）前端优化
 
 [Animate css动画](http://www.jq22.com/yanshi819) | [掘金-‘正则’等工具函数](https://juejin.im/post/5e6cf42bf265da57397e3694)
 
