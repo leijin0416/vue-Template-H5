@@ -139,6 +139,29 @@ export function randomMath() {
     return arr;
 }
 
+/**
+ * 上传图片，去除base64前缀
+ * @return {file} 对象
+ */
+export function getUrlBase64(file) {
+    return new Promise(function (resolve, reject) {
+        let files = file;
+        let reader = new FileReader()
+        let imgResult = ''
+        if (typeof files !== 'object') return;
+        reader.readAsDataURL(files)
+        reader.onload = function () {
+            imgResult = reader.result
+        }
+        reader.onerror = function (error) {
+            reject(error)
+        }
+        reader.onloadend = function () {
+            resolve(imgResult)
+        }
+    })
+}
+
 export default {
     timeFilter,
     formatPhone,
