@@ -192,7 +192,7 @@ export default {
         onloadLoveData() {
             let _that = this;
             let pages = _that.pages;
-            // 延迟1秒
+            // 延迟1秒，还需要设置css的高度
             setTimeout(() => {
                 webGetLoveTransList({
                     'id': pages.uid,
