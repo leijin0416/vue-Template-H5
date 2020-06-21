@@ -1,5 +1,5 @@
 <template>
-    <!-- 爱心值列表 -->
+    <!-- 上拉加载 -->
     <div class="page v-overflow">
         <div class="v-return-lf">
             <van-icon name="arrow-left" size="24" color="#fff" @click="onPrevGoClick" />
