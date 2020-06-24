@@ -1,4 +1,4 @@
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 
 export default {
 	namespaced: true,

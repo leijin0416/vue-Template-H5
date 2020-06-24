@@ -17,7 +17,7 @@ import Layout from "@/layouts";
 import MTabBar from "@/components/navBarTabs/index";
 
 import { mapState, mapMutations, mapGetters } from "vuex";
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 
 export default {
     name: "App",

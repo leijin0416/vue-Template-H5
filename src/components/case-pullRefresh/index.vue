@@ -78,7 +78,7 @@
 import Clipboard from "clipboard";
 
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 import { webGetLoveTransList, webGetUsersCoreInfo } from '@/api/common';
 
 export default {

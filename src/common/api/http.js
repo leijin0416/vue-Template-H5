@@ -1,6 +1,6 @@
 import axios from "axios";
 import CryptoJS from './cryptoJS';
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 // 格式化返回数据
 import { getRealJsonData } from './json';
 // import { Toast } from 'vant';

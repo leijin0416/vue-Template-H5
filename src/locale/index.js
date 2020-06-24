@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import messages from './messages'
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 
 Vue.use(VueI18n);
 

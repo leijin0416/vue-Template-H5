@@ -42,7 +42,7 @@
 
 <script>
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 import { getUrlBase64 } from '@/filters/index';
 import { webUploadImages, webBuyersAppeal, webSellerAppeal } from '@/api/common';
 

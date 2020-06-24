@@ -17,7 +17,7 @@
 
 <script>
 import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
-import { sessionData } from '@/filters/local';
+import { sessionData } from '@/filters/storage';
 
 export default {
     data() {
