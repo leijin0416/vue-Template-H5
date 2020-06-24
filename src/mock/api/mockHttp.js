@@ -1,7 +1,7 @@
 //引入axios
-import axios from 'axios'
+import axios from 'axios';
 
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = '';
 /**
  * 提示函数
  * 禁止点击蒙层、显示一秒后关闭 vant.Toast('提示');
@@ -11,7 +11,6 @@ const tip = msg => {
         message: msg,
         duration: 3000,
         forbidClick: true
-
     });
 }
 
@@ -39,17 +38,9 @@ axios.interceptors.response.use(response => {
             case 401:
                 // 401: 未登录状态，跳转登录页
                 tip('系统提示：您未登录');
-                setTimeout(() => {
-                    removeStore('hasSessionToken');
-                    window.location.reload();
-                }, 1000);
                 break;
             case 403:
                 tip('登录过期，请重新登录');
-                setTimeout(() => {
-                    removeStore('hasSessionToken');
-                    window.location.reload();
-                }, 1000);
                 break;
             case 404:
                 tip('系统提示：请求资源未找到');
