@@ -2,6 +2,7 @@
  *  mock文件下 打开npm，执行 json-server mock/db.js 
  */
 var Mock = require('mockjs');
+const user = require('./api/user.json');
 
 module.exports = function () {
     return {
@@ -20,6 +21,12 @@ module.exports = function () {
                 state: Mock.Random.integer(1, 2),
                 createtime: Mock.Random.now(),
                 "msg": "success"
+            }]
+        }),
+        'list': Mock.mock({
+            'data|1': [{
+                'status': 200,
+                'data': user
             }]
         })
     }

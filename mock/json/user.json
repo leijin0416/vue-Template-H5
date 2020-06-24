@@ -1,0 +1,55 @@
+{
+    "msg": "success",
+    "code": 200,
+    "data": [
+        {
+            "children": [
+                {
+                    "children": [],
+                    "createId": -10,
+                    "createTime": "2020-01-05 14:51:05",
+                    "hasChild": false,
+                    "id": 10,
+                    "name": "",
+                    "parentId": 1,
+                    "remarks": "用户信息",
+                    "router": "/user/info",
+                    "title": "用户信息",
+                    "type": "ios-person",
+                    "updateId": 30,
+                    "updateTime": "2020-01-13 15:53:17"
+                },
+                {
+                    "children": [],
+                    "createId": 1,
+                    "createTime": "2020-01-05 14:51:05",
+                    "hasChild": false,
+                    "id": 44,
+                    "name": "",
+                    "parentId": 1,
+                    "remarks": "用户列表",
+                    "router": "/user/list",
+                    "title": "用户信息",
+                    "type": "ios-person",
+                    "updateId": 30,
+                    "updateTime": "2020-01-13 15:53:17"
+                }
+            ],
+            "createId": -10,
+            "createTime": "2020-01-05 14:46:43",
+            "hasChild": false,
+            "id": 1,
+            "name": "1",
+            "parentId": 0,
+            "remarks": "",
+            "router": "",
+            "title": "用户管理",
+            "icon": "ios-person",
+            "updateId": -10,
+            "updateTime": "2020-01-05 14:46:45"
+        }
+    ],
+    "status": 200,
+    "statusText": "OK"
+}
+
