@@ -66,7 +66,8 @@ const sessionData = function (method, name, obj) {
 };
 
 /**
- *  localData('set', 'localeCut', val);
- *  sessionData('set', 'localeCut', val);
+ *  用法：
+ *  -localData('set', 'localeCut', val);
+ *  -sessionData('set', 'localeCut', val);
  */
 export { localData, sessionData }
