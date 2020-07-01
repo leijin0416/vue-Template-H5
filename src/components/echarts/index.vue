@@ -1,14 +1,17 @@
 <template>
-	<div class="page">
+    <!-- echarts案例 -->
+	<div class="page v-router">
 		<div class="container">
-            <div class="v-echarts-map" id="chartMap"></div>
-            <div class="v-echarts" id="chart"></div>
+            <div class="v-echarts-box">
+                <div class="v-echarts" id="mapChart" :style="{width: screenWidth+'px'}"></div>
+                <div class="v-echarts" id="myChart" :style="{width: screenWidth+'px'}"></div>
+            </div>
 		</div>
 	</div>
 </template>
 
 <script>
-import { ajWebGetSendChina } from '@/mock/api/mock'
+import { ajWebGetSendChina } from '@/mock/api/mock';
 
 export default {
 	name: "",
@@ -19,18 +22,28 @@ export default {
 	props: {},
 	data() {
 		return {
-            xAxisData: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+            screenWidth: '',
 			bg: require('@/assets/img/hk/logo.png'),
 		}
     },
     created() {
-        let _that = this
+        let _that = this;
+        // 获取当前屏幕的宽度
+        this.screenWidth = document.body.clientWidth;
+        window.onresize = () => {
+            return (() => {
+                this.screenWidth = document.body.clientWidth;
+            })();
+        };
         _that.$nextTick( () => {
-            _that.fetchData()
-        })
+            _that.initChart();
+            _that.fetchData();
+        });
+        console.log(this.screenWidth);
     },
 	//页面初始化
 	mounted(){
+        let _that = this;
     },
 	//监听click方法
 	methods: {
@@ -40,7 +53,7 @@ export default {
             }).then( res => {
                 let data = JSON.parse(res.data.data);
                 let newArr = [];
-                //获取到各个省份的数据
+                // 获取到各个省份的数据
                 var province = data.areaTree[0].children;
                 for (var i = 0; i < province.length; i++) {
                     var json = {
@@ -49,19 +62,21 @@ export default {
                     }
                     newArr.push(json)
                 }
+                // 疫情地图
+                _that.$chart.lineChina('mapChart', newArr);
                 // console.log(newArr)
-                _that.initChart(newArr)
                 // console.log(data.areaTree);
             })
         },
         /**
          *  挂载
          */
-        initChart(newArr) {
+        initChart() {
             let _that = this;
-            
-            _that.$chart.lineChina('chartMap', newArr);
-            _that.$chart.line1('chart', this.xAxisData);
+            let newArr = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+            let xAxisName ="价格";
+            let xAxisNameTwo ="成交量";
+            _that.$chart.line1('myChart', newArr, xAxisName, xAxisNameTwo);
         }
 	}
 }
@@ -69,14 +84,8 @@ export default {
 
 <style lang="scss" scoped>
 .v-echarts {
-    width: 100%;
     height: 600px;
-}
-.v-echarts-map {
-    width: 100%;
-    height: 800px;
-}
-
-@media only screen and (max-width: 375px) {
+    padding: 0 30px 30px;
+    box-sizing: border-box;
 }
 </style>

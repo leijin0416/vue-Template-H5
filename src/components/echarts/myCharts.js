@@ -1,5 +1,5 @@
-import echarts from 'echarts'
-import 'echarts/map/js/china.js'  // 引入地图，3.0后需要
+import echarts from 'echarts';
+import 'echarts/map/js/china.js';  // 引入地图，3.0后需要
 
 /**
  * 图标折叠
@@ -15,13 +15,13 @@ const install = function (Vue) {
             get() {
                 return {
                     // 画一条简单的线
-                    line1: function (id, xAxisData) {
+                    line1: function (id, xAxisData, xAxisName, xAxisNameTwo) {
                         this.chart = echarts.init(document.getElementById(id));
                         this.chart.clear();
 
                         const optionData = {
                             title: {
-                                text: '堆叠区域图',
+                                text: '折线图',
                                 x: 'center',
                                 top: 0
                             },
@@ -38,7 +38,7 @@ const install = function (Vue) {
                                 x: 'center',      // 可设定图例在左、右、居中
                                 y: 'top',        // 可设定图例在上、下、居中,
                                 top: 25,
-                                data: ['邮件营销', '联盟广告']
+                                data: [xAxisName, xAxisNameTwo]
                             },
                             toolbox: {
                                 show: false,      // 是否显示工具栏组件
@@ -66,7 +66,7 @@ const install = function (Vue) {
                             ],
                             series: [
                                 {
-                                    name: '邮件营销',
+                                    name: xAxisName,
                                     type: 'line',
                                     stack: '总量',
                                     smooth: 0.3,    // 线条曲线
@@ -84,7 +84,7 @@ const install = function (Vue) {
                                     data: [120, 132, 101, 134, 90, 230, 210]
                                 },
                                 {
-                                    name: '联盟广告',
+                                    name: xAxisNameTwo,
                                     type: 'line',
                                     stack: '总量',
                                     smooth: 0.3,
@@ -103,7 +103,7 @@ const install = function (Vue) {
                                         }
                                     },
                                     areaStyle: {
-                                        normal: { color: 'rgb(213, 213, 213)', }  // 改变区域颜色
+                                        normal: { color: 'rgb(234, 234, 234)', }  // 改变区域颜色
                                     },
                                     data: [220, 182, 191, 234, 290, 330, 310]
                                 }
