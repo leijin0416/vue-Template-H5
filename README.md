@@ -2,7 +2,7 @@
 
 [1 面试](https://juejin.im/post/5ec9f2dff265da76e25c99cb) | [2 面试题](https://juejin.im/post/5ecf1da15188254316147991#heading-28) | [3 面试+分析题](https://juejin.im/post/5ede4c556fb9a047a6446a8e#comment) | [4 面试+分析题](https://juejin.im/post/5ee1e42ef265da770d3dcc2c#comment)
 
-[图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9)
+[图表可视化](https://www.jianshu.com/p/8cac22daca98) | [可视化实例](https://echarts.apache.org/examples/zh/index.html) | [常用GIF压缩](https://www.jianshu.com/p/37554cff3fe9) | [JavaScript数组去重（12种方法）](https://segmentfault.com/a/1190000016418021?utm_source=tag-newest) | [如何实现防抖和节流，及使用场景](https://juejin.im/post/5f02710c6fb9a07e7a53ce11)
 
 [H5效果GIF链接](https://cdn.u1.huluxia.com/g4/M01/4F/26/rBAAdl7SbIOAZCCcAAcn4lsR0wY574.gif)
 

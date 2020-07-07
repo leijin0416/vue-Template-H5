@@ -1,10 +1,14 @@
 import echarts from 'echarts';
 import 'echarts/map/js/china.js';  // 引入地图，3.0后需要
 
+
 /**
  * 图标折叠
- * -用法：_that.$chart.lineChina('chart', newArr);  -父传子
- * -参考：https://www.jianshu.com/p/8cac22daca98
+ * -用法：_that.$chart.lineChina('chart', newArr);
+ * 
+ * 参考：
+ * - https://www.jianshu.com/p/8cac22daca98
+ * - https://www.cnblogs.com/1ming/p/9547947.html  -详细
  * 
  * @param {id} Vue  标签ID
  * @param {mapData} Vue     图表数据
@@ -14,6 +18,7 @@ const install = function (Vue) {
         $chart: {
             get() {
                 return {
+                    
                     // 画一条简单的线
                     line1: function (id, xAxisData, xAxisName, xAxisNameTwo) {
                         this.chart = echarts.init(document.getElementById(id));
@@ -21,11 +26,11 @@ const install = function (Vue) {
 
                         const optionData = {
                             title: {
-                                text: '折线图',
+                                text: '',
                                 x: 'center',
-                                top: 0
+                                top: 0,
                             },
-                            tooltip: {
+                            tooltip: { // 提示框
                                 trigger: 'axis',
                                 axisPointer: {
                                     type: 'cross',
@@ -37,11 +42,13 @@ const install = function (Vue) {
                             legend: {
                                 x: 'center',      // 可设定图例在左、右、居中
                                 y: 'top',        // 可设定图例在上、下、居中,
-                                top: 25,
+                                top: 20,
                                 data: [xAxisName, xAxisNameTwo]
                             },
                             toolbox: {
+                                orient: 'horizontal',
                                 show: false,      // 是否显示工具栏组件
+                                x: 'left',
                                 feature: {
                                     saveAsImage: {}
                                 }
@@ -56,12 +63,51 @@ const install = function (Vue) {
                                 {
                                     type: 'category',
                                     boundaryGap: false,
+                                    axisLabel: {
+                                        show: true,
+                                        textStyle: {
+                                            color: '#899daf',  //更改坐标轴文字颜色
+                                            fontSize: 12      //更改坐标轴文字大小
+                                        }
+                                    },
+                                    axisTick: {
+                                        show: true
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: '#899daf' //更改坐标轴颜色
+                                        }
+                                    },
                                     data: xAxisData
                                 }
                             ],
                             yAxis: [
                                 {
-                                    type: 'value'
+                                    type: 'value',
+                                    //设置网格线颜色
+                                    splitLine: {
+                                        show: true,//隐藏网格线
+                                        lineStyle: {
+                                            color: ['rgb(235, 235, 235)'],
+                                            width: 1,
+                                            type: 'solid'
+                                        }
+                                    },
+                                    axisLabel: {
+                                        show: true,
+                                        textStyle: {
+                                            color: '#899daf',  //更改坐标轴文字颜色
+                                            fontSize: 12      //更改坐标轴文字大小
+                                        }
+                                    },
+                                    axisTick: {
+                                        show: true
+                                    },
+                                    axisLine: {
+                                        lineStyle: {
+                                            color: '#899daf' //更改坐标轴颜色
+                                        }
+                                    }
                                 }
                             ],
                             series: [
@@ -72,9 +118,9 @@ const install = function (Vue) {
                                     smooth: 0.3,    // 线条曲线
                                     itemStyle: {
                                         normal: {
-                                            color: '#b198dc',   // 改变折线点的颜色
+                                            color: '#00c775',   // 改变折线点的颜色
                                             lineStyle: {
-                                                color: '#b198dc' // 改变折线颜色
+                                                color: '#00c775' // 改变折线颜色
                                             }
                                         }
                                     },
@@ -96,14 +142,14 @@ const install = function (Vue) {
                                     },
                                     itemStyle: {
                                         normal: {
-                                            color: '#ff8762',   // 改变折线点的颜色
+                                            color: '#ff928f',   // 改变折线点的颜色
                                             lineStyle: {
-                                                color: '#ff8762' // 改变折线颜色
+                                                color: '#ff928f' // 改变折线颜色
                                             }
                                         }
                                     },
                                     areaStyle: {
-                                        normal: { color: 'rgb(234, 234, 234)', }  // 改变区域颜色
+                                        normal: { color: 'rgb(245, 245, 245)', }  // 改变区域颜色
                                     },
                                     data: [220, 182, 191, 234, 290, 330, 310]
                                 }
