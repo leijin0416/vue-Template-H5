@@ -74,12 +74,12 @@ export default {
                 let url = this.$route.path;
                 let displayNavBar = this.$route.meta.displayNavBar;
                 if (displayNavBar) {
-                    if (sessionId == 1) this.$router.push('/')
-                    if (sessionId == 2) this.$router.push('/transmit')
-                    if (sessionId == 3) this.$router.push('/shop')
-                    if (sessionId == 4) this.$router.push('/home')
+                    if (sessionId == 1) this.$router.push('/');
+                    if (sessionId == 2) this.$router.push('/transmit');
+                    if (sessionId == 3) this.$router.push('/shop');
+                    if (sessionId == 4) this.$router.push('/home');
                 }
-                Vue.set(this, 'active', Number(sessionId))
+                Vue.set(this, 'active', Number(sessionId));
                 
             } else {
                 // 默认
