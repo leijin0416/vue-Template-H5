@@ -45,16 +45,28 @@ export default {
             qrCodeUrl: ''
         }
     },
+	// 创建完成（访问当前this实例）
+	created: async function() {
+        let _that = this;
+        // 获取中英文状态
+        let localeName = getStore('localeCut');
+        // 获取用户ID
+        let userId = getStore('userNameId');
+
+        if (localeName) {
+            _that.localeCut = localeName;
+        }
+        if (userId) {
+            _that.title = userId;
+        }
+        // 注册链接
+        _that.qrCodeUrl = 'http://timchains.com/register?user=' + userId;
+        _that.drawUrl();
+	},
+    mounted () {
+        let _that = this;
+    },
     methods:{
-        getPixelRatio(context){
-            var backingStore = context.backingStorePixelRatio ||
-                    context.webkitBackingStorePixelRatio ||
-                    context.mozBackingStorePixelRatio ||
-                    context.msBackingStorePixelRatio ||
-                    context.oBackingStorePixelRatio ||
-                    context.backingStorePixelRatio || 1;
-                return (window.devicePixelRatio || 1) / backingStore;
-        },
         async drawUrl(){
             await setTimeout(() => {
                 let that = this;
@@ -89,28 +101,16 @@ export default {
             　　})
 
             }, 1000)
-        }  
-    },
-	// 创建完成（访问当前this实例）
-	created: async function() {
-        let _that = this;
-        // 获取中英文状态
-        let localeName = getStore('localeCut')
-        // 获取用户ID
-        let userId = getStore('userNameId')
-
-        if (localeName) {
-            _that.localeCut = localeName;
+        },
+        getPixelRatio(context){
+            var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+                return (window.devicePixelRatio || 1) / backingStore;
         }
-        if (userId) {
-            _that.title = userId;
-        }
-        // 注册链接
-        _that.qrCodeUrl = 'http://timchains.com/register?user=' + userId;
-        _that.drawUrl();
-	},
-    mounted () {
-        let _that = this;
     }
 };
 </script>
