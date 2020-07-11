@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import { groupDetail } from '@/mock/api/mock'
+import { groupDetail } from '@/mock/api/mock';
 
 export default {
 	name: "",
