@@ -40,7 +40,10 @@ export default {
     created() {
         let url = this.developCode;
         if (url) {
-            this.onQRcode(url);
+            // 监听 vuex 中的 developCode
+            setTimeout(() => {
+                this.onQrcode(url);
+            }, 300);
         }
     },
     // 生命周期 - 挂载完成（可以访问DOM元素）
@@ -50,12 +53,12 @@ export default {
     methods: {
         // 清除上一次的二维码
         showQRCodeDialog(type) {
-            this.$refs.qrCodeDiv.innerHTML = ''
-            this.onQRcode(type)
+            this.$refs.qrCodeDiv.innerHTML = '';
+            this.onQrcode(type);
         },
-        onQRcode(url) {
+        onQrcode(url) {
             let that = this;
-            let urls = url
+            let urls = url;
             // console.log(url);
             if (urls) {
                 new QRCode(this.$refs.qrCodeDiv, {
