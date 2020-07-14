@@ -18,12 +18,10 @@ const install = function (Vue) {
         $chart: {
             get() {
                 return {
-                    
                     // 画一条简单的线
                     line1: function (id, xAxisData, xAxisName, xAxisNameTwo) {
                         this.chart = echarts.init(document.getElementById(id));
                         this.chart.clear();
-
                         const optionData = {
                             title: {
                                 text: '',
