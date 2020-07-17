@@ -4,8 +4,6 @@
  *
  *	全局容器
  */
-
-/* 容器盒子宽度 */
 $width-lg: 1300px;
 $font-weight-base: 400;
 
@@ -43,22 +41,14 @@ $color-gray-bg: #9e9dad;
 //字体灰
 $color-gray: #d7e7f7;
 $color-violet-dark: #922fb7;
-
 //橙色
 $color-orange: #ff9800;
 $color-red: #eb3753;
-
 //投影色
 $border-color-base: rgba(0, 0, 0, .1);
 //淡蓝色
 $color-blue-bg: #4a8eea;
 
-//容器
-.container-wd {width: $width-lg;margin: 0 auto;}
-
 @media only screen and (max-width: 1024px) {
 	//小屏容器
-	.container-wd {
-		width: 100%;
-	}
 }

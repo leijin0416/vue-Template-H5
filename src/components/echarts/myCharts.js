@@ -1,7 +1,6 @@
 import echarts from 'echarts';
 import 'echarts/map/js/china.js';  // 引入地图，3.0后需要
 
-
 /**
  * 图标折叠
  * -用法：_that.$chart.lineChina('chart', newArr);
@@ -22,6 +21,7 @@ const install = function (Vue) {
                     line1: function (id, xAxisData, xAxisName, xAxisNameTwo) {
                         this.chart = echarts.init(document.getElementById(id));
                         this.chart.clear();
+                        
                         const optionData = {
                             title: {
                                 text: '',
