@@ -27,8 +27,8 @@ const localData = function (method, name, obj) {
             }
             return true;
         case 'clean':
-            localStorage.removeItem(name + '_obj');
-            localStorage.removeItem(name + '_str');
+            window.localStorage.removeItem(name + '_obj');
+            window.localStorage.removeItem(name + '_str');
             return true;
     }
 };
@@ -59,8 +59,8 @@ const sessionData = function (method, name, obj) {
             }
             return true;
         case 'clean':
-            sessionStorage.removeItem(name + '_obj');
-            sessionStorage.removeItem(name + '_str');
+            window.sessionStorage.removeItem(name + '_obj');
+            window.sessionStorage.removeItem(name + '_str');
             return true;
     }
 };
