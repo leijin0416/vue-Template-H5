@@ -7,6 +7,7 @@ Vue.use(VueI18n);
 
 /**
  *  中英文切换
+ *  sessionData('set', 'localeCut', val);   -设值
  */
 const i18n = new VueI18n({
     locale: sessionData('get', 'localeCut') || 'zh_CN',    // 语言标识
