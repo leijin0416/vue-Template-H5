@@ -3,18 +3,14 @@
     <div class="v-share">
         <!-- 背景盒子 -->
         <div ref="box" class="v-share-box">
-            <div class="v-flex" :style="{height: fullHeight + 'px'}">
+            <div class="v-flex" :style="{height: fullHeight}">
                 <div class="v-flex-bd">
                     <img class="v-img-box" src="@/assets/img/hk/icon-share_bg2.png" alt="logo.png">
                 </div>
-                <div class="v-flex-ft">
-                    <div class="v-qrcode-box">
-                        <div class="v-qrcode" id="qrcode"></div>
-                    </div>
-                    <div class="v-text-box">
-                        <p class="v-title">邀请码：{{title}}</p>
-                        <p class="v-text">(长按屏幕保存图片海报进行分享)</p>
-                    </div>
+            </div>
+            <div class="v-share-ft">
+                <div class="v-qrcode-box">
+                    <div class="v-qrcode" id="qrcode"></div>
                 </div>
             </div>
         </div>
@@ -31,42 +27,48 @@ import './html2canvas.js';
 
 import html2canvas from 'html2canvas';
 import { qrcanvas } from 'qrcanvas';
-import { getStore } from '@/common/localUtil';
+import { sessionData } from '@/filters/storage';
 
 export default {
+    name: 'html2canvas',
     data() {
         return{
-            fullHeight: 'auto', 
+            fullHeight: 'auto',  // 计算处理手机高度
             // fullHeight: document.documentElement.clientHeight,  // 计算处理手机高度
-            img: require('@/assets/img/hk/icon-share_bg2.png'),
-            localeCut: 'zh-CN',
-            title: '12',  // ID
+            localeName: 'zh_CN',
             imgUrl:'',  // 海报
             qrCodeUrl: ''
         }
+    },
+    props: {
+		//payImgUrl: {
+		//	type: String,
+		//	default: ""
+		//}
     },
 	// 创建完成（访问当前this实例）
 	created: async function() {
         let _that = this;
         // 获取中英文状态
-        let localeName = getStore('localeCut');
-        // 获取用户ID
-        let userId = getStore('userNameId');
+        let localeName = sessionData('get', 'setLanguages') || 'zh_CN';
+        _that.localeName = localeName;
 
-        if (localeName) {
-            _that.localeCut = localeName;
-        }
-        if (userId) {
-            _that.title = userId;
-        }
-        // 注册链接
-        _that.qrCodeUrl = 'http://timchains.com/register?user=' + userId;
+        // 链接
+        _that.qrCodeUrl = 'http://www.baidu.com';
         _that.drawUrl();
 	},
     mounted () {
-        let _that = this;
     },
     methods:{
+        getPixelRatio(context){
+            var backingStore = context.backingStorePixelRatio ||
+                    context.webkitBackingStorePixelRatio ||
+                    context.mozBackingStorePixelRatio ||
+                    context.msBackingStorePixelRatio ||
+                    context.oBackingStorePixelRatio ||
+                    context.backingStorePixelRatio || 1;
+                return (window.devicePixelRatio || 1) / backingStore;
+        },
         async drawUrl(){
             await setTimeout(() => {
                 let that = this;
@@ -91,7 +93,7 @@ export default {
                 // 生成二维码
                 let canvas1 = qrcanvas({
                     data: decodeURIComponent(this.qrCodeUrl),
-                    size: 80
+                    size: 90
                 })
                 document.getElementById('qrcode').appendChild(canvas1)
 
@@ -101,16 +103,11 @@ export default {
             　　})
 
             }, 1000)
-        },
-        getPixelRatio(context){
-            var backingStore = context.backingStorePixelRatio ||
-                    context.webkitBackingStorePixelRatio ||
-                    context.mozBackingStorePixelRatio ||
-                    context.msBackingStorePixelRatio ||
-                    context.oBackingStorePixelRatio ||
-                    context.backingStorePixelRatio || 1;
-                return (window.devicePixelRatio || 1) / backingStore;
-        }
+        }  
+    },
+    destroyed() {
+        let _that = this;
+        // sessionData('clean', 'getInfo');
     }
 };
 </script>
@@ -133,32 +130,24 @@ export default {
                     line-height: 0;
                 }
             }
-            .v-flex-ft {
-                position: relative;
-                display: block;
-                min-height: 210px;
-                padding: 30px 40px;
-                text-align: right;
-                color: #333;
-                background-color: #fff;
-                .v-qrcode-box {
-                    display: inline-block;
-                    .v-qrcode {line-height: 0;}
-                }
-                .v-text-box {
-                    @include tb;
-                    left: 40px;
-                    font-size: 20px;
-                    text-align: left;
-                    .v-title {
-                        padding-bottom: 20px;
-                        font-size: 36px;
-                        font-weight: bold;
-                    }
-                    .v-text {
-                        color: #666;
-                    }
-                }
+        }
+        .v-share-ft {
+            z-index: 9999;
+            position: absolute;
+            right: 0;
+            bottom: 6%;
+            display: block;
+            width: 100%;
+            text-align: right;
+            .v-qrcode-box {
+                display: inline-block;
+                min-height: 140px;
+                margin-right: 48px;
+                .v-qrcode {line-height: 0; border: 10px solid #fff;}
+            }
+            .v-text-box {
+                padding-top: 30px;
+                font-size: 20px;
             }
         }
     }
