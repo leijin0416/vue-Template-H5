@@ -11,7 +11,9 @@ import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
 
 export default {
     data() {
-        return { }
+        return {
+            
+        }
     },
     props: {
         // developCode: String
@@ -20,7 +22,7 @@ export default {
     // 监听属性 类似于data概念
     computed: {
 		// 取
-		// ...mapGetters("localUser", ["developCode"])
+		...mapGetters("localUser", ["developCode"])
     },
     watch: {
 		"developCode": {
@@ -28,8 +30,9 @@ export default {
 				if (newer == null) {
 					return
 				} else {
+                    // 监听 vuex 地址 developCode
                     let _that = this;
-                    _that.showQRCodeDialog(newer)
+                    _that.showQRCodeDialog(newer);
 					// alert(newer)
 				}
 			},
@@ -40,9 +43,8 @@ export default {
     created() {
         let url = this.developCode;
         if (url) {
-            // 监听 vuex 中的 developCode
             setTimeout(() => {
-                this.onQrcode(url);
+                // this.onQrcode(url);
             }, 300);
         }
     },
