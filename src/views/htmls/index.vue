@@ -16,7 +16,7 @@ export default {
                 inactive: 'https://img.yzcdn.cn/vant/user-inactive.png',
             },
             dynamicClass: 'avh',
-			valLocale: 'zh-CN',
+			valLocale: 'zh_CN',
 			orIPhone: true
 		}
 	},

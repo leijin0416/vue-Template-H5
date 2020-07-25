@@ -2,6 +2,6 @@ import cn from "./cn/index";
 import en from "./en/index";
 
 export default {
-    'en-US': en,
-    'zh-CN': cn,
+    'en_US': en,
+    'zh_CN': cn,
 }
