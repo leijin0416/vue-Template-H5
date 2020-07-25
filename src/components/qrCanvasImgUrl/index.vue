@@ -5,7 +5,6 @@
         <div ref="box" class="v-share-box">
             <div class="v-flex" :style="{height: fullHeight + 'px'}">
                 <div class="v-flex-bd">
-                    <!-- <div class="v-img-box" :style="{height: fullHeight + 'px', backgroundImage: 'url(' + img + ')'}"></div> -->
                     <img class="v-img-box" src="@/assets/img/hk/icon-share_bg2.png" alt="logo.png">
                 </div>
                 <div class="v-flex-ft">
@@ -37,7 +36,8 @@ import { getStore } from '@/common/localUtil';
 export default {
     data() {
         return{
-            fullHeight: document.documentElement.clientHeight,  // 计算处理手机高度
+            fullHeight: 'auto', 
+            // fullHeight: document.documentElement.clientHeight,  // 计算处理手机高度
             img: require('@/assets/img/hk/icon-share_bg2.png'),
             localeCut: 'zh-CN',
             title: '12',  // ID
