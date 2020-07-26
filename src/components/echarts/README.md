@@ -6,6 +6,4 @@
 
 ## 参考
 
-- https://www.jianshu.com/p/8cac22daca98
-
-- https://www.cnblogs.com/1ming/p/9547947.html  -详细
+https://www.jianshu.com/p/8cac22daca98 | https://www.cnblogs.com/1ming/p/9547947.html  详细
