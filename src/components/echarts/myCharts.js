@@ -3,11 +3,6 @@ import 'echarts/map/js/china.js';  // 引入地图，3.0后需要
 
 /**
  * 图标折叠
- * -用法：_that.$chart.lineChina('chart', newArr);
- * 
- * 参考：
- * - https://www.jianshu.com/p/8cac22daca98
- * - https://www.cnblogs.com/1ming/p/9547947.html  -详细
  * 
  * @param {id} Vue  标签ID
  * @param {mapData} Vue     图表数据
