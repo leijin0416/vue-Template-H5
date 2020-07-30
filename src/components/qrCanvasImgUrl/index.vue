@@ -115,6 +115,15 @@ export default {
 <style lang="scss" scoped>
 .v-share {
     position: relative;
+    // 海报盒子
+    .v-share-top {
+        z-index: 999;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
     // 背景盒子
     .v-share-box {
         z-index: 1;
@@ -132,17 +141,17 @@ export default {
             }
         }
         .v-share-ft {
-            z-index: 9999;
+            z-index: 999;
             position: absolute;
             right: 0;
+            left: 0;
             bottom: 6%;
             display: block;
             width: 100%;
-            text-align: right;
+            text-align: center;
             .v-qrcode-box {
                 display: inline-block;
                 min-height: 140px;
-                margin-right: 48px;
                 .v-qrcode {line-height: 0; border: 10px solid #fff;}
             }
             .v-text-box {
@@ -150,15 +159,6 @@ export default {
                 font-size: 20px;
             }
         }
-    }
-    // 海报盒子
-    .v-share-top {
-        z-index: 99;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
     }
 }
 
