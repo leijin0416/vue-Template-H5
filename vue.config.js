@@ -92,7 +92,7 @@ const isDevCS = {
  */
 module.exports = {
     runtimeCompiler: true,
-    productionSourceMap: devNeedCdn,
+    productionSourceMap: devNeedCdn, // 是否开启生产模式下的sourceMap压缩
     lintOnSave: false,
     devServer: {
         open: false,
@@ -215,5 +215,12 @@ module.exports = {
         }
     },
     // 第三方插件的选项
-    pluginOptions: {}
+    pluginOptions: {},
+    /**
+     *  将第三方库中的ES6语法进行编译
+     *  https://juejin.im/post/6856815533749338125#heading-7
+     */
+    transpileDependencies: [
+        // 'module-name-new/library-name-new' // 出现问题的那个库
+    ],
 };
