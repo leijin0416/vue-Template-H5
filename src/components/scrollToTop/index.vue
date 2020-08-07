@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div class="page-min">
         <div v-if="btnTopFlag" class="v-go-top">
             <p @click="backTop()"><van-icon name="arrow-up" size="20" color="#fff" /></p>
         </div>
@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
-import { sessionData } from '@/filters/local';
 
 export default {
     data() {
@@ -17,9 +15,7 @@ export default {
         }
     },
     props: {},
-    components: {
-
-    },
+    components: {},
     // 监听属性 类似于data概念
     computed: {},
     // 监控data中的数据变化
@@ -35,13 +31,8 @@ export default {
     // 方法集合
     methods: {
         /**
-         * 点击图标回到顶部方法，加计时器是为了缓慢回到顶部  https://www.jianshu.com/p/90ccd4b503ac
+         * 点击图标回到顶部方法，加计时器是为了缓慢回到顶部
          * 
-         * 回到顶部功能实现过程：
-         *  1. 获取页面当前距离顶部的滚动距离（虽然IE不常用了，但还是需要考虑一下兼容性的）
-         *  2. 计算出每次向上移动的距离，用负的滚动距离除以5，因为滚动的距离是一个正数，想向上移动就是做一个减法
-         *  3. 用当前距离加上计算出的距离，然后赋值给当前距离，就可以达到向上移动的效果
-         *  4. 最后记得在移动到顶部时，清除定时器
          */
         backTop () {
             let _that = this;
@@ -53,17 +44,17 @@ export default {
                 if(osTop === 0){
                     clearInterval(timer);
                 }
-            },30)
+            }, 30);
         },
         /**  
-         * 显示回到顶部按钮  https://blog.csdn.net/weixin_43421652/article/details/91425869
-         * 
+         * 初始加载
+         * 显示回到顶部按钮
          */
         scrollToTop(){
             let _that = this;
             // height 不能100%
             let scrollTop = window.scrollY || window.pageYOffset || 
-                            document.documentElement.scrollTop || document.body.scrollTop;    // 获取页面滚动高度
+                             document.documentElement.scrollTop || document.body.scrollTop;    // 获取页面滚动高度
             if (scrollTop >= 600) {
                 _that.btnTopFlag = true;
                 
@@ -77,13 +68,12 @@ export default {
     destroyed() {
         let _that = this;
         window.removeEventListener('scroll', _that.scrollToTop, true);
-        // sessionData('clean', 'getInfo');
     }
 }
 </script>
 
 <style lang="scss" scoped>
-.page {
+.page-min {
     .v-go-top {
         z-index: 9999;
         position: fixed;

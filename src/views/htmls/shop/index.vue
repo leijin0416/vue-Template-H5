@@ -24,16 +24,20 @@
 				</van-list>
 			</van-pull-refresh>
 		</div>
+		<v-top />
 	</div>
 </template>
 
 <script>
-import { ajWebGetSendChinaNews } from '@/mock/api/mock'
+import scrollToTop from "@/components/scrollToTop/index";
+
+import { ajWebGetSendChinaNews } from '@/mock/api/mock';
 
 export default {
 	name: "",
 	//组件
 	components: {
+        'v-top': scrollToTop
 	},
 	//接收父组件传参
 	props: {
@@ -86,18 +90,17 @@ export default {
 					_that.refreshing = false;
 				}
 				// let data = JSON.parse(res.data.data);
-
 				// let lengths = res.data.result.data.pages;  // 总条数
                 // let pageSize = res.data.result.data.pageSize;	// 当前页码
 				let data = res.data.data;
-				 _that.newsData = data;
+				_that.newsData = data;
 				_that.loading = false;
 				// _that.pages.pageSize = pageSize;
 
 				if (_that.newsData.length >= data.length) {
 					_that.finished = true;
 				}
-                console.log(res);
+                // console.log(res);
 			})
 
 		}
