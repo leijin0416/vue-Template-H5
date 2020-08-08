@@ -40,8 +40,8 @@ export default {
                 let osTop = document.documentElement.scrollTop || document.body.scrollTop;
                 let ispeed = Math.floor(-osTop / 5); 
                 document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
-                _that.isTop = true;
-                if(osTop === 0){
+                // _that.isTop = true;
+                if(osTop === 0) {
                     clearInterval(timer);
                 }
             }, 30);
