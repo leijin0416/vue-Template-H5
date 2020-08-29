@@ -34,25 +34,19 @@ export default {
     data() {
         return{
             fullHeight: 'auto',  // 计算处理手机高度
-            // fullHeight: document.documentElement.clientHeight,  // 计算处理手机高度
             localeName: 'zh_CN',
             imgUrl:'',  // 海报
-            qrCodeUrl: ''
+            qrCodeUrl: '',
+            // fullHeight: document.documentElement.clientHeight,  // 计算处理手机高度
         }
     },
-    props: {
-		//payImgUrl: {
-		//	type: String,
-		//	default: ""
-		//}
-    },
+    props: {},
 	// 创建完成（访问当前this实例）
 	created: async function() {
         let _that = this;
         // 获取中英文状态
         let localeName = sessionData('get', 'setLanguages') || 'zh_CN';
         _that.localeName = localeName;
-
         // 链接
         _that.qrCodeUrl = 'http://www.baidu.com';
         _that.drawUrl();
