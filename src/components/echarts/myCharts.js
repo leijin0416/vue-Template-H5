@@ -1,11 +1,8 @@
 import echarts from 'echarts';
-import 'echarts/map/js/china.js';  // 引入地图，3.0后需要
+import 'echarts/map/js/china.js';
 
 /**
  * 图标折叠
- * 
- * @param {id} Vue  标签ID
- * @param {mapData} Vue     图表数据
  */
 const install = function (Vue) {
     Object.defineProperties(Vue.prototype, {
