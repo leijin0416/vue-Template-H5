@@ -1,5 +1,4 @@
-// 主入口
-// eslint-disable-next-line no-unused-vars
+// 解析JSON
 export function getRealJsonData (baseStr) {
   if (!baseStr || typeof baseStr !== 'string') return
   var jsonData = null

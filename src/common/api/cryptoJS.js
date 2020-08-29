@@ -1,5 +1,4 @@
 import CryptoJS from 'crypto-js';
-import md5 from 'js-md5';
 
 /**
  *  3DES 加解密
@@ -9,9 +8,7 @@ const iv = CryptoJS.enc.Utf8.parse('01234567');
 
 export default {
     /**
-     *  第二种
-     *  npm install --save crypto-js
-     * 
+     *  第二种  npm install --save crypto-js
      *  解密方法
      */
     Decrypt(word) {
@@ -23,7 +20,6 @@ export default {
             })
         return CryptoJS.enc.Utf8.stringify(decrypted).toString();
     },
-
     // 加密方法
     Encrypt(word) {
         let words = CryptoJS.enc.Utf8.parse(word);
